@@ -1,13 +1,25 @@
 <template>
   <div id="app">
-
+    {{groupsQuestionData}}
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: 'App'
+  name: 'App',
+  computed: {
+    ...mapGetters(['groupsQuestionData'])
+  },
+  methods: {
+    ...mapActions([
+      'loadGroupsQuestionData'
+    ])
+  },
+  mounted() {
+    this.loadGroupsQuestionData()
+  }
 }
 </script>
 
