@@ -52,7 +52,7 @@ export default {
             state.data = []
             if (error) {
                 if (error.response) {
-                    if (error.response.status === 401) {
+                    if (error.response.status === 500) {
                         state.error = error.response.data.message
                         Notification.error({
                             title: 'Error',
@@ -78,7 +78,7 @@ export default {
         [UPDATE_GROUPSDATA_FAILURE] (state, error) {
             if (error) {
                 if (error.response) {
-                    if (error.response.status === 401) {
+                    if (error.response.status === 500) {
                         state.error = error.response.data.message
                         Notification.error({
                             title: 'Error',
